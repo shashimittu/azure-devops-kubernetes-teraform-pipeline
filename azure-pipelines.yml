@@ -11,6 +11,7 @@ pool:
 
 #pipelines > stages > jobs > task (steps)
 
+jobs:
 - job: Job1
   steps:
   - script: echo Job1 - Hello, world, changed!
