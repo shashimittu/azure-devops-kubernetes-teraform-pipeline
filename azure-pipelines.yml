@@ -9,7 +9,7 @@ trigger:
 pool:
   vmImage: 'ubuntu-latest'
 
-#pipelines > stages > jobs > task (steps)
+# Pipelines > Stages > Jobs > Tasks(Steps)
 
 jobs:
 - job: Job1
@@ -22,6 +22,19 @@ jobs:
       echo more information
     displayName: 'Run a multi-line script'
 - job: Job2
+  dependsOn: Job1
   steps:
   - script: echo Job2!
+    displayName: 'Run a one-line script'
+- job: Job3
+  dependsOn: Job1
+  steps:
+  - script: echo Job3!
+    displayName: 'Run a one-line script'
+- job: Job4
+  dependsOn: 
+  - Job2
+  - Job3
+  steps:
+  - script: echo Job3!
     displayName: 'Run a one-line script'
